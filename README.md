@@ -4,13 +4,22 @@ The code in this repository creates a web server using Node.js's built-in http m
 
 ## Key Features include:
 
-View Cars: Users can access the root URL ("/") to view a simple HTML page that provides an overview of the Car Management System. They can click the "View Cars" button to see a list of sample cars in JSON format.
+File Operations: Functions for reading, writing, and deleting car information have been revamped to use Promises with async/await.
 
-Add a New Car: Users can add a new car by filling out a form on the HTML page ("/") and clicking the "Add Car" button. The new car's information (model, year, and color) is added to the list of sample cars.
+Adding Car Information: The addCarInfo function now returns a Promise, making asynchronous operations clearer.
+
+HTTP Request Handling: The code employs async/await for efficient management of HTTP requests, resulting in better readability and error handling.
+
+## How to run the code
+
+Open a web browser and go to http://localhost:3001 to access the Car Management System. 
+
+View Cars: Click the "View Cars" button to see a list of sample cars in JSON format.
+
+Add a New Car: Fill out the form to add a new car. After submitting the form, you'll receive a JSON response with the details of the added car.
+
+Simulate Delete: The code includes a route for simulating the deletion of car data. However, you would need to send a DELETE request to the appropriate endpoint to use this feature
 
 
-## Node.js Event Loop
-
-This code uses the event loop for things like reading/writing files and handling web requests. For instance, when you add a car through the form, the code uses callbacks to do the work asynchronously.# miniproject4
 # miniproject4
 # edited-MWproject4
