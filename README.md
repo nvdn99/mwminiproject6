@@ -1,25 +1,42 @@
-The Car Management System is a simple Node.js application that demonstrates the basic functionality of managing a list of cars. This application includes features to view existing cars and add new cars to the list. It uses asynchronous operations and HTTP requests to achieve this functionality.
-
-The code in this repository creates a web server using Node.js's built-in http module. This server serves both HTML content and JSON data, depending on the request type and URL.
-
-## Key Features include:
-
-File Operations: Functions for reading, writing, and deleting car information have been revamped to use Promises with async/await.
-
-Adding Car Information: The addCarInfo function now returns a Promise, making asynchronous operations clearer.
-
-HTTP Request Handling: The code employs async/await for efficient management of HTTP requests, resulting in better readability and error handling.
-
-## How to run the code
-
-Open a web browser and go to http://localhost:3001 to access the Car Management System. 
-
-View Cars: Click the "View Cars" button to see a list of sample cars in JSON format.
-
-Add a New Car: Fill out the form to add a new car. After submitting the form, you'll receive a JSON response with the details of the added car.
-
-Simulate Delete: The code includes a route for simulating the deletion of car data. However, you would need to send a DELETE request to the appropriate endpoint to use this feature
 
 
-# miniproject4
-# edited-MWproject4
+# Overview
+
+The Car Management System is a basic web application that demonstrates the interaction between a React frontend and an Express backend. The frontend displays a list of sample cars retrieved from the backend and allows users to add new cars. The backend provides endpoints for fetching, adding, and deleting car data.
+
+
+# Installation
+
+Follow these steps to set up and run the Car Management System:
+
+Clone this repository or download the source code.
+Navigate to the project directory using your terminal or command prompt.
+Install the necessary dependencies for both the frontend and backend 
+
+# Usage
+
+To run the Car Management System, follow these steps:
+
+Start the Express backend:
+The backend will start and listen on http://localhost:3000.
+
+Then Start the React frontend:
+The frontend will start and open in your default web browser at http://localhost:3000.
+You can now interact with the Car Management System. The frontend will display a list of sample cars, and you can add new cars by filling out the form. You can also delete all car data using the "Delete All Cars" button.
+
+# Backend API
+
+The backend provides the following API endpoints:
+
+GET /api/v1/cars: Retrieve a list of cars.
+POST /api/v1/cars: Add a new car.
+DELETE /api/v1/cars: Delete all car data.
+You can access these endpoints through the frontend or by using tools like curl or Postman.
+
+# Folder Structure
+
+The project structure is divided into two main folders:
+
+frontend: Contains the React frontend code.
+backend: Contains the Express backend code.
+
