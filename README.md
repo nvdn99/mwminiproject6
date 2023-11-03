@@ -40,3 +40,4 @@ The project structure is divided into two main folders:
 frontend: Contains the React frontend code.
 backend: Contains the Express backend code.
 
+# edited-mwproject5
