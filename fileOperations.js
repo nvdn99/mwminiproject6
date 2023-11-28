@@ -1,12 +1,44 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const React = require('react');
+const { useState, useEffect } = require('react'); 
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+function useCarData(initialCars) {
+  const [cars, setCars] = useState(initialCars);
+
+  const addCar = async (newCar) => {
+    try {
+      const createdCar = await addCarAsync(newCar);
+      setCars((prevCars) => [...prevCars, createdCar]);
+    } catch (error) {
+      console.error('Failed to add a new car:', error);
+    }
+  };
+
+  const getCars = async () => {
+    try {
+      
+      const carsData = await getCarsAsync();
+      setCars(carsData);
+    } catch (error) {
+      console.error('Failed to fetch cars:', error);
+    }
+  };
+
+  return {
+    cars,
+    addCar,
+    getCars,
+  };
+}
 
 const sampleCars = [
   { model: 'Car Model 1', year: 2020, color: 'Red' },
@@ -33,7 +65,7 @@ app.get('/', (req, res) => {
           <input type="text" id="model" name="model" required><br>
           <label for="year">Year:</label>
           <input type="number" id="year" name="year" required><br>
-          <label for="color">Color:</label>
+          <label for "color">Color:</label>
           <input type="text" id="color" name="color" required><br>
           <button type="submit">Add Car</button>
         </form>
@@ -45,7 +77,6 @@ app.get('/', (req, res) => {
 
 app.get('/api/v1/cars', async (req, res) => {
   try {
-    // Simulate an asynchronous operation with a Promise
     const cars = await getCars();
     res.json(cars);
   } catch (error) {
@@ -64,7 +95,6 @@ app.post('/api/v1/cars', async (req, res) => {
 });
 
 app.delete('/api/v1/cars', async (req, res) => {
-  // Implementing a callback for a non-async operation for illustration
   deleteCars((error) => {
     if (error) {
       res.status(500).json({ error: 'Failed to delete cars' });
@@ -79,7 +109,6 @@ app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
 
-// Function to simulate fetching cars asynchronously
 function getCars() {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -88,7 +117,6 @@ function getCars() {
   });
 }
 
-// Function to simulate adding a new car asynchronously
 function addCar(newCar) {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -98,10 +126,9 @@ function addCar(newCar) {
   });
 }
 
-// Function to simulate deleting cars with a callback
 function deleteCars(callback) {
   setTimeout(() => {
-    // Simulate a successful deletion
+    
     callback(null);
   }, 1000);
 }
